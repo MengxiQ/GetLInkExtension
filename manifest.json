@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "获取祈愿链接",
+    "version": "1.0.0",
+    "description": "打开链接并登录：https://user.mihoyo.com/#/account/home",
+    "icons": {
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://user.mihoyo.com/*"
+            ],
+            "js": [
+                "src/md5.min.js",
+                "src/getlink.js",
+                "src/injectHtml.js",
+                "src/main.js"
+            ],
+            "runAt": "document_idle"
+        }
+    ],
+    "background": {
+        "service_worker": "src/service_worker.js"
+    }
+}
